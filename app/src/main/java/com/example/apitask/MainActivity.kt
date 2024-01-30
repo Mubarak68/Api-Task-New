@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.apitask.navigation.AppContent
 import com.example.apitask.ui.theme.ApiTaskTheme
-import com.example.taskapi.composables.PetListComposableScreen
-import com.example.taskapi.petViewModel.PetViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +20,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: PetViewModel = viewModel()
-                    PetListComposableScreen(viewModel)
+                    AppContent()
                 }
             }
         }
     }
 }
+

@@ -1,6 +1,6 @@
-package com.example.taskapi.repo
+package com.example.apitask.repo
 
-import com.example.taskapi.interfaceApiPet.PetApiInterface
+import com.example.apitask.interfaceApiPet.PetApiInterface
 
 class PetRepo(private val api: PetApiInterface) {
 

@@ -1,14 +1,14 @@
-package com.example.taskapi.petViewModel
+package com.example.apitask.petViewModel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.taskapi.interfaceApiPet.PetApiInterface
-import com.example.taskapi.model.Pet
-import com.example.taskapi.petSingleton.RetrofitHelperPet
-import com.example.taskapi.repo.PetRepo
+import com.example.apitask.interfaceApiPet.PetApiInterface
+import com.example.apitask.model.Pet
+import com.example.apitask.petSingleton.RetrofitHelperPet
+import com.example.apitask.repo.PetRepo
 import kotlinx.coroutines.launch
 
 class PetViewModel : ViewModel() {
@@ -29,6 +29,33 @@ class PetViewModel : ViewModel() {
                 pets = repository.getAllPets()
             } catch (e: Exception) {
                 println("HELLO ${e}")
+            }
+        }
+    }
+
+    fun addPet(pet: Pet) {
+        viewModelScope.launch {
+            try {
+                var response = petApiService.addPet(pet)
+
+                if (response.isSuccessful && response.body() != null) {
+                    println("The pet added")
+                } else {
+                    println("Error")
+                }
+            } catch (e: Exception) {
+                println("HELLO ${e}")
+            }
+        }
+    }
+
+    fun deletePet(petId : Int){
+        viewModelScope.launch {
+            try {
+                var response = petApiService.deletePet(petId)
+
+            }catch (e:Exception){
+
             }
         }
     }

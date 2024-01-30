@@ -1,4 +1,4 @@
-package com.example.taskapi.model
+package com.example.apitask.model
 
 data class Pet(
     var id: Int,
